@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/romarash/Desktop/aophion3/fdf.h
+fcntl.h
+-
+libft.h
+/Users/romarash/Desktop/aophion3/libft.h
+stdio.h
+-
+get_next_line.h
+/Users/romarash/Desktop/aophion3/get_next_line.h
+math.h
+-
+mlx.h
+/Users/romarash/Desktop/aophion3/mlx.h
+
+/Users/romarash/Desktop/aophion3/ft_coor.c
+fdf.h
+/Users/romarash/Desktop/aophion3/fdf.h
+
+/Users/romarash/Desktop/aophion3/get_next_line.h
+unistd.h
+-
+stdlib.h
+-
+libft.h
+/Users/romarash/Desktop/aophion3/libft.h
+
+/Users/romarash/Desktop/aophion3/libft.h
+unistd.h
+-
+stdlib.h
+-
+string.h
+-
+
+/Users/romarash/Desktop/aophion3/mlx.h
+
