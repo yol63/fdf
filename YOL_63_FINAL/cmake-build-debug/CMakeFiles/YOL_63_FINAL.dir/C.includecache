@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../includes/fdf.h
+fcntl.h
+-
+../libft/libft.h
+../libft/libft.h
+stdio.h
+-
+math.h
+-
+mlx.h
+-
+
+../libft/libft.h
+unistd.h
+-
+stdlib.h
+-
+string.h
+-
+
+/Users/romarash/Desktop/aophion4/YOL_63_FINAL/srcs/base.c
+fdf.h
+/Users/romarash/Desktop/aophion4/YOL_63_FINAL/srcs/fdf.h
+
