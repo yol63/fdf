@@ -12,25 +12,6 @@
 
 #include "fdf.h"
 
-int		ft_isdigite(char *str)
-{
-	size_t i;
-
-	i = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
-			|| str[i] == ' ' || str[i] == '\v' || str[i] == '\f')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] != '\0')
-	{
-		if (str[i] < 48 || str[i] > 57)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 int		ft_check_wei(char **split, int wid)
 {
 	int i;

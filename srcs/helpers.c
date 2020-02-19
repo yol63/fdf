@@ -61,7 +61,7 @@ t_map		*ft_fill_map(int x, t_handle *data, char **split, t_map *map)
 	map->y = data->hei;
 	if (data->wid < map->x && data->hei == 0)
 		data->wid = map->x;
-	map->z = ft_atoi(split[0]);
+	map->z = ft_realatoi(split[0]);
 	if (data->maxz < map->z)
 		data->maxz = map->z;
 	map->color = ft_atoi_base(split[1], 16);

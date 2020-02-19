@@ -11,7 +11,8 @@ SOUS_FIL = base.c \
 		   ft_isdigite.c \
 		   helpers.c \
 		   keys.c \
-		   mouse.c
+		   mouse.c \
+		   ft_raelatoi.c
 LIB_F = ./libft/
 LIB = libft.a
 LIB_C = -L $(LIB_F) -lft

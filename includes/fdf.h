@@ -6,7 +6,7 @@
 /*   By: romarash <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 15:11:17 by romarash          #+#    #+#             */
-/*   Updated: 2020/02/19 16:42:03 by romarash         ###   ########.fr       */
+/*   Updated: 2020/02/19 18:09:28 by romarash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ typedef struct		s_cor
 
 typedef	struct		s_handle
 {
-	int				colorflag;
 	int				key;
 	int				shiftx;
 	int				shifty;
-	float				maxz;
+	int				colorflag;
+	int				maxz;
 	double			zoom;
 	int				hei;
 	int				wid;
@@ -75,14 +75,15 @@ typedef struct		s_red
 	double			max;
 }					t_red;
 
-void    			ft_z_color(t_handle *data, t_map *map1, t_map *map2, t_cor *cor);
+int					ft_realatoi(const char *str);
+void				ft_z_color(t_handle *data, t_map *map1,
+		t_map *map2, t_cor *cor);
 int					ft_draw(t_map *start, t_handle *data);
 void				ft_error(int exit_code, char *message);
 t_map				*ft_lstnews(void);
 void				ft_lstdels(t_map **alst);
 void				ft_null_free(char *buf);
 int					ft_atoi_base(char *str, int base);
-int					ft_isdigite(char *ch);
 t_map				*ft_fill_map(int x, t_handle *data, char **split,
 		t_map *map);
 void				ft_num_keys(int key, t_handle *data);

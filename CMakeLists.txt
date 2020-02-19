@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(YOL_63_FINAL C)
+project(aophion C)
 
 set(CMAKE_C_STANDARD 11)
 
@@ -7,7 +7,7 @@ include_directories(includes)
 include_directories(libft)
 include_directories(libft/includes)
 
-add_executable(YOL_63_FINAL
+add_executable(aophion
         includes/fdf.h
         libft/includes/libft.h
         libft/ft_atoi.c
@@ -79,16 +79,14 @@ add_executable(YOL_63_FINAL
         libft/libft.h
         srcs/base.c
         srcs/check.c
-        srcs/ft_coor.c
         srcs/fdf.c
         srcs/ft_coor.c
         srcs/ft_isdigite.c
+        srcs/ft_raelatoi.c
         srcs/helpers.c
         srcs/keys.c
         srcs/mouse.c)
 
-#add_executable(fdf fdf.c check.c get_next_line.c helpers.c)
-target_link_libraries(YOL_63_FINAL C "libmlx.a")
-target_link_libraries(YOL_63_FINAL C "-framework AppKit")
-target_link_libraries(YOL_63_FINAL C "-framework OpenGL")
-SET( CMAKE_CXX_FLAGS  "<other compiler flags> -pthread")
+target_link_libraries(aophion C "libmlx.a")
+target_link_libraries(aophion C "-framework AppKit")
+target_link_libraries(aophion C "-framework OpenGL")

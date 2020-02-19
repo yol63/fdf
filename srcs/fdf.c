@@ -25,7 +25,7 @@ int		ft_save_map(int fd, char *buf, t_map *map, t_handle *data)
 		while (split[j] != NULL)
 		{
 			part = ft_strsplit(split[j], ',');
-			if ((!(map->next = ft_lstnews()) || (ft_isdigite(part[0]) == 0)))
+			if (!(map->next = ft_lstnews()))
 				ft_error(1, "z_coord is invalid\n");
 			map = ft_fill_map(j++, data, part, map);
 			if (j > data->wid && data->hei != 0)
