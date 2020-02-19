@@ -6,7 +6,7 @@
 /*   By: romarash <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 18:09:50 by romarash          #+#    #+#             */
-/*   Updated: 2020/02/03 18:43:28 by romarash         ###   ########.fr       */
+/*   Updated: 2020/02/17 11:57:17 by aophion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ int					ft_isupper(int c);
 int					ft_islower(int c);
 int					ft_isspace(int c);
 int					ft_sqrt(int nb);
+int					get_next_line(const int fd, char **line);
 
 #endif

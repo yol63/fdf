@@ -6,6 +6,7 @@ INCP = ./
 
 SRC	= 	ft_memset.c \
 		ft_bzero.c \
+		get_next_line.c \
 		ft_memcpy.c \
 		ft_memccpy.c \
 		ft_memmove.c \
