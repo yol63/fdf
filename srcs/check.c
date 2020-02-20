@@ -6,7 +6,7 @@
 /*   By: romarash <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 05:19:49 by romarash          #+#    #+#             */
-/*   Updated: 2020/02/19 16:34:33 by romarash         ###   ########.fr       */
+/*   Updated: 2020/02/20 16:53:05 by aophion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void			ft_save_pixel(t_handle *data, int x, int y, int color)
 	int				i;
 	unsigned int	c;
 
-	if (y < 1000 && x < 1000 && y > 0 && x > 0)
+	if (y < 1080 && x < 1920 && y > 0 && x > 0)
 	{
 		i = x * data->bits / 8 + y * data->size;
 		c = mlx_get_color_value(data->mlx_ptr, color);
@@ -53,6 +53,8 @@ void			wr_linex(t_handle *data, t_cor *cor)
 {
 	t_red	bres;
 
+	cor->x0 = cor->x1;
+	cor->y0 = cor->y1;
 	bres.del_x = cor->x2 - cor->x1;
 	bres.del_y = cor->y2 - cor->y1;
 	bres.max = ft_max(ft_abs(bres.del_x), ft_abs(bres.del_y));
@@ -61,7 +63,9 @@ void			wr_linex(t_handle *data, t_cor *cor)
 	while ((int)(cor->x2 - cor->x1) != 0
 			|| (int)(cor->y2 - cor->y1) != 0)
 	{
-		ft_save_pixel(data, cor->x1, cor->y1, ft_max(cor->color1, cor->color2));
+		if (cor->color1 != cor->color2 && bres.max != 0)
+			cor->color1 = ft_color(cor, bres.del_x, bres.del_y, bres.max);
+		ft_save_pixel(data, cor->x1, cor->y1, cor->color1);
 		cor->y1 += bres.y;
 		cor->x1 += bres.x;
 	}

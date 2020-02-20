@@ -6,7 +6,7 @@
 /*   By: aophion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 12:56:28 by aophion           #+#    #+#             */
-/*   Updated: 2020/02/19 15:33:01 by romarash         ###   ########.fr       */
+/*   Updated: 2020/02/20 16:58:28 by aophion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ t_cor		ft_isom(t_handle *data, t_cor *prev)
 			- cor.z1) * data->zoom;
 	cor.y2 = data->shifty + ((temp_x2 + temp_y2) * sin(data->rad)
 			- cor.z2) * data->zoom;
-	cor.z1 = cor.z1;
-	cor.z2 = cor.z2;
 	return (cor);
 }
 
@@ -90,7 +88,5 @@ t_cor		ft_blank1(t_handle *data, t_cor *prev)
 	cor.x2 = data->shiftx + cor.x2 * data->zoom;
 	cor.y1 = data->shifty + cor.y1 * data->zoom;
 	cor.y2 = data->shifty + cor.y2 * data->zoom;
-	cor.z1 = cor.z1;
-	cor.z2 = cor.z2;
 	return (cor);
 }

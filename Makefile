@@ -1,8 +1,19 @@
 NAME = fdf
 COM = gcc
-FLAGS = -Wall -Wextra -Werror
-HEAD = ./includes/
+HEAD_FDF = ./includes/
+HEAD_L = ./libft/
+HEAD_LIB = libft.h
 HEAD_H = fdf.h
+HEAD_F = $(HEAD_FDF) \
+		$(HEAD_L)
+HEADS = $(addprefix -I, $(HEAD_F))
+LIB_F = ./libft/
+LIB = libft.a
+LIB_D = $(addprefix $(LIB_F), $(LIB))
+LIB_C = -L $(LIB_F) -lft
+MLX_F = /usr/local/lib/
+MLX_C = -L $(MLX_F) -lmlx
+FRAME = -framework OpenGL -framework Appkit
 SOUS = ./srcs/
 SOUS_FIL = base.c \
 		   check.c \
@@ -10,34 +21,32 @@ SOUS_FIL = base.c \
 		   ft_coor.c \
 		   ft_isdigite.c \
 		   helpers.c \
+		   le_color.c \
 		   keys.c \
-		   mouse.c \
-		   ft_raelatoi.c
-LIB_F = ./libft/
-LIB = libft.a
-LIB_C = -L $(LIB_F) -lft
-MLX_F = /usr/local/lib/
-MLX_C = -L $(MLX_F) -lmlx
+		   ft_raelatoi.c\
+		   mouse.c
 OBJS = $(SOUS_FIL:.c=.o)
 SOUS_F = $(addprefix $(SOUS), $(SOUS_FIL))
 OBJS_F = $(addprefix $(BIN), $(OBJS))
-REMOVE = rm -rf
+TRASH = fdf.dSYM
 BIN = ./bin/
-FRAME = -framework OpenGL -framework Appkit
+FLAGS = -Wall -Wextra -Werror
+REMOVE = rm -rf
 
+.PHONY: all clean re
 
 all: $(NAME)
-$(NAME): $(OBJS) $(SOUS)
-	make -C $(LIB_F) all && \
-	$(COM) $(FLAGS) -o $@ $(OBJS_F) -I $(HEAD) $(LIB_C) $(MLX_C) $(FRAME)
-$(OBJS):%.o: $(SOUS)%.c | $(BIN)
-	$(COM) $(FLAGS) -c $< -o $(BIN)$@ -I $(HEAD)
-$(BIN):
-	mkdir $@
+$(NAME): $(OBJS_F) $(HEAD_FDF)$(HEAD_H) $(LIB_D)
+	$(COM) $(FLAGS) -o $@ $(OBJS_F) $(HEADS) $(LIB_C) $(MLX_C) $(FRAME)
+$(LIB_D): $(LIB_F)
+	$(MAKE) -sC $(LIB_F) all
+$(BIN)%.o: $(SOUS)%.c
+	mkdir -p $(BIN) && \
+	$(COM) $(FLAGS) -c $< -o $@ $(HEADS)
 clean:
-	@$(REMOVE) $(OBJS_F) $(BIN)
-	@make -C $(LIB_F) clean
+	@$(REMOVE) $(OBJS_F) $(BIN) $(TRASH)
+	@make -sC $(LIB_F) clean
 fclean: clean
-	@$(REMOVE) $(NAME) $(BIN)
-	@make -C $(LIB_F) fclean
+	@$(REMOVE) $(NAME)
+	@make -sC $(LIB_F) fclean
 re: fclean all

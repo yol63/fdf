@@ -6,7 +6,7 @@
 /*   By: aophion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 13:03:11 by aophion           #+#    #+#             */
-/*   Updated: 2020/02/19 16:51:26 by romarash         ###   ########.fr       */
+/*   Updated: 2020/02/20 16:33:14 by aophion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,5 @@ void			ft_z_color(t_handle *data, t_map *map1, t_map *map2, t_cor *cor)
 		else
 			cor->color2 = 0x00ff00;
 	}
+	cor->colour = cor->color1;
 }

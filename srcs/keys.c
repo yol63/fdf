@@ -6,7 +6,7 @@
 /*   By: aophion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 12:21:38 by aophion           #+#    #+#             */
-/*   Updated: 2020/02/19 16:57:54 by romarash         ###   ########.fr       */
+/*   Updated: 2020/02/20 16:47:31 by aophion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,26 @@ void	ft_menu(t_handle *data)
 {
 	char	*menu;
 
-	menu = "Up - 8, Down - 2, Left - 4, Right - 6";
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 20, 0x80FF91, menu);
-	menu = "BLANK XY - 1, XZ - 2, YZ - 3";
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 35, 0x80FF91, menu);
-	menu = "ISO - 0, ZOOM : + - , change high - use arrows ";
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 50, 0x80FF91, menu);
-	menu = "Z, A, X, S, C, D - rotation";
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 65, 0x80FF91, menu);
-	menu = "4 - colors 5 - white";
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 80, 0x80FF91, menu);
-	menu = "EXIT - Esc";
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 95, 0x80FF91, menu);
+	if (data->key == 4)
+	{
+		menu = "Up - num8, Down - num2, Left - num4, Right - num6";
+		mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 10, 0x90FF80, menu);
+		menu = "BLANK XY - 1, XZ - 2, YZ - 3";
+		mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 25, 0x90FF80, menu);
+		menu = "ISO - num0, ZOOM : num(+/-) , Z change - use arrows ";
+		mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 40, 0x90FF80, menu);
+		menu = "Z, A, X, S, C, D - rotation";
+		mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 55, 0x90FF80, menu);
+		menu = "4 - colors, 5 - white";
+		mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 70, 0x90FF80, menu);
+		menu = "EXIT - Esc/Close window, j - hide menu";
+		mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 90, 0xD080FF, menu);
+	}
+	else
+	{
+		menu = "Press 'h' to show menu";
+		mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 10, 0xD080FF, menu);
+	}
 }
 
 double	ft_abs(double n)

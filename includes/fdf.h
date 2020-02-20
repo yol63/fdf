@@ -6,7 +6,7 @@
 /*   By: romarash <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 15:11:17 by romarash          #+#    #+#             */
-/*   Updated: 2020/02/19 18:09:28 by romarash         ###   ########.fr       */
+/*   Updated: 2020/02/20 16:33:00 by aophion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,17 @@ typedef struct		s_map
 
 typedef struct		s_cor
 {
+	double			x0;
+	double			y0;
 	double			x1;
 	double			x2;
 	double			y1;
 	double			y2;
 	double			z1;
 	double			z2;
-	unsigned int	color1;
-	unsigned int	color2;
+	int				color1;
+	int				color2;
+	int				colour;
 }					t_cor;
 
 typedef	struct		s_handle
@@ -75,6 +78,17 @@ typedef struct		s_red
 	double			max;
 }					t_red;
 
+typedef struct		s_bit
+{
+	unsigned int	red_1 : 8;
+	unsigned int	red_2 : 8;
+	unsigned int	greeb_1 : 8;
+	unsigned int	greeb_2 : 8;
+	unsigned int	blue_1 : 8;
+	unsigned int	blue_2 : 8;
+	int				col;
+}					t_bit;
+
 int					ft_realatoi(const char *str);
 void				ft_z_color(t_handle *data, t_map *map1,
 		t_map *map2, t_cor *cor);
@@ -101,4 +115,7 @@ void				ft_rotate_x(t_handle *data, t_cor *cor);
 void				ft_rotate_y(t_handle *data, t_cor *cor);
 void				ft_rotate_z(t_handle *data, t_cor *cor);
 int					ft_check_wei(char **split, int wid);
+int					ft_color(t_cor *cor, double del_x,
+		double del_y, double max);
+int					ft_close(int key, int *i);
 #endif

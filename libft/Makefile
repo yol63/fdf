@@ -75,10 +75,10 @@ OBJ	= $(SRC:%.c=%.o)
 all: $(NAME)
 
 $(NAME) : $(OBJ) $(INCLUDES)
-	gcc -Wall -Werror -Wextra -c $(SRC) -I $(INCP)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
-
+$(OBJ):%.o:%.c
+	gcc -Wall -Werror -Wextra -c $< -I $(INCP)
 clean:
 	/bin/rm -f $(OBJ)
 

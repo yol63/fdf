@@ -6,7 +6,7 @@
 /*   By: romarash <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/22 14:39:19 by romarash          #+#    #+#             */
-/*   Updated: 2020/02/19 13:13:45 by romarash         ###   ########.fr       */
+/*   Updated: 2020/02/20 14:59:21 by aophion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,21 @@ int		ft_check_wei(char **split, int wid)
 
 void	ft_filler(t_handle *data, int flag)
 {
-	data->shiftx = 500;
-	data->shifty = 500;
+	if (flag == 2)
+	{
+		data->shiftx = 100;
+		data->shifty = 200;
+	}
+	if (flag == 3 || flag == 4)
+	{
+		data->shiftx = 150;
+		data->shifty = 500;
+	}
+	if (flag == 0 || flag == 1)
+	{
+		data->shiftx = 500;
+		data->shifty = 250;
+	}
 	data->zoom = 10;
 	data->h = 0.25;
 	data->proj = flag;
@@ -40,8 +53,6 @@ void	ft_filler(t_handle *data, int flag)
 		data->rad = 0.523599;
 	if (flag == 1)
 		data->rad = 0;
-	if (flag == 2)
-		data->rad = 1;
 }
 
 t_cor	ft_blank2(t_handle *data, t_cor *prev)

@@ -6,7 +6,7 @@
 /*   By: aophion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 18:55:54 by aophion           #+#    #+#             */
-/*   Updated: 2020/02/19 16:12:39 by romarash         ###   ########.fr       */
+/*   Updated: 2020/02/20 16:33:09 by aophion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		ft_error(int exit_code, char *message)
 {
-	ft_putstr(message);
+	ft_putstr_fd(message, exit_code);
 	exit(exit_code);
 }
 
